@@ -1,0 +1,12 @@
+<div class="container">
+
+  <div mat-dialog-content>
+    {{ data }}
+    <p></p>
+  </div>
+
+  <div mat-dialog-actions align="center">
+    <button mat-button (click)="onConfirm(true)">Yes</button>
+    <button mat-button (click)="onConfirm(false)">No</button>
+  </div>
+</div>
