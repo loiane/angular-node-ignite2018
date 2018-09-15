@@ -1,3 +1,75 @@
-<p>
-  attendee-form works!
-</p>
+<mat-card>
+
+  <mat-toolbar color="primary">Create New Attendee</mat-toolbar>
+
+  <mat-card-content>
+    <form class="example-form" [formGroup]="form">
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Name" formControlName="name" #name [errorStateMatcher]="matcher">
+        <mat-hint align="end">{{ name.value.length }} / 200</mat-hint>
+        <mat-error *ngIf="isFieldRequired('name')">
+          Name is required
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Email" formControlName="email" [errorStateMatcher]="matcher">
+        <mat-error *ngIf="isFieldRequired('email')">
+          Email is required
+        </mat-error>
+        <mat-error *ngIf="isEmailValid('email')">
+          Please enter a valid email address
+        </mat-error>
+      </mat-form-field>
+
+      <!--mat-toolbar>
+          <span [ngClass]="getFormArrayClass('phones')">Phones</span>
+          <div class="fill-remaining-space"></div>
+          <button mat-icon-button color="accent" (click)="addPhone()">
+            <mat-icon aria-label="Add New Phone">add</mat-icon>
+          </button>
+        </mat-toolbar -->
+
+      <!--mat-error *ngIf="isFormArrayValid('phones')" class="form-array-error">
+          Please enter a at least one phone number
+        </mat-error> 
+  
+        <table class="example-full-width" cellspacing="0" formArrayName="phones" *ngFor="let phone of getPhoneFormArray(); let i = index;">
+          <tr [formGroupName]="i">
+            <td style="width: 15%">
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="Area Code" formControlName="areaCode">
+                <mat-error *ngIf="isFieldRequiredArray('phones', 'areaCode', i)">
+                    Area Code is required
+                </mat-error>
+                <mat-error *ngIf="verifyFieldLength('phones', 'areaCode', i)">
+                    Area Code requires 3 digits.
+                </mat-error>
+              </mat-form-field>
+            </td>
+            <td style="width:73%">
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="Phone #" formControlName="phoneNumber">
+                <mat-error *ngIf="isFieldRequiredArray('phones', 'phoneNumber', i)">
+                    Phone # is required
+                </mat-error>
+                <mat-error *ngIf="verifyFieldLength('phones', 'phoneNumber', i)">
+                    Area Code requires 7 digits.
+                </mat-error>
+              </mat-form-field>
+            </td>
+            <td>
+              <button mat-icon-button color="warn">
+                <mat-icon aria-label="Remove Phone">delete</mat-icon>
+              </button>
+            </td>
+          </tr>
+        </table> -->
+    </form>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button mat-raised-button color="primary" (click)="onSubmit()">Save</button>
+    <button mat-raised-button (click)="onCancel()">Cancel</button>
+  </mat-card-actions>
+</mat-card>

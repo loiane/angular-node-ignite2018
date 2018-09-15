@@ -1,3 +1,17 @@
-<p>
-  attendees works!
-</p>
+<div class="example-container mat-elevation-z8">
+
+  <app-attendee-table *ngIf="attendees$ | async as attendees; else errorMsg"
+    [attendees]="attendees"
+    (details)="onDetails($event)"
+    (edit)="onEdit($event)"
+    (remove)="onRemove($event)"
+    (add)="onAdd()">
+  </app-attendee-table>
+
+  <ng-template #errorMsg>
+    <div class="example-loading-shade">
+      <mat-spinner *ngIf="!attendees"></mat-spinner>
+    </div>
+  </ng-template>
+
+</div>

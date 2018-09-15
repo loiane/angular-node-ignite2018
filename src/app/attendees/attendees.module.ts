@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { SharedModule } from '../shared/shared.module';
 import { AttendeesRoutingModule } from './attendees-routing.module';
@@ -9,7 +10,7 @@ import { AttendeeTableComponent } from './components/attendee-table/attendee-tab
 import { AttendeesComponent } from './containers/attendees/attendees.component';
 
 @NgModule({
-  imports: [CommonModule, AttendeesRoutingModule, SharedModule],
+  imports: [CommonModule, ReactiveFormsModule, AttendeesRoutingModule, SharedModule],
   declarations: [
     AttendeesComponent,
     AttendeeDialogComponent,

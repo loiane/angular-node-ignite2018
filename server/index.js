@@ -1,13 +1,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const routes = require('./src/routes/attendee.routes');
 
 const app = express();
 app.use(bodyParser.json());
 
-// A default hello word route
-app.get('/', (req, res) => {
-    res.send({hello: 'world'});
-});
+app.use('/api', routes);
 
 const port = process.env.port || '3000';
 

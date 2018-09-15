@@ -1,3 +1,38 @@
-<p>
-  attendee-table works!
-</p>
+<mat-table #table [dataSource]="attendees">
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+    <mat-cell *matCellDef="let record" color="accent"> 
+      <a (click)="onDetails(record)" class="name-link">{{ record.name }}</a> 
+    </mat-cell>
+  </ng-container>
+
+  <!-- Email Column -->
+  <ng-container matColumnDef="email">
+    <mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
+    <mat-cell *matCellDef="let record"> {{ record.email }} </mat-cell>
+  </ng-container>
+
+  <!-- actions -->
+  <ng-container matColumnDef="actions">
+    <mat-header-cell *matHeaderCellDef class="action-col">
+      <button mat-mini-fab color="accent">
+        <mat-icon aria-label="Add" (click)="onAdd()">add</mat-icon>
+      </button>
+    </mat-header-cell>
+
+    <mat-cell *matCellDef="let record" class="action-col">
+      <button mat-icon-button color="primary">
+        <mat-icon aria-label="Edit" (click)="onEdit(record)">edit</mat-icon>
+      </button>
+
+      <button mat-icon-button color="warn">
+        <mat-icon aria-label="Delete" (click)="onRemove(record)">delete</mat-icon>
+      </button>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>

@@ -1,0 +1,17 @@
+.mat-table {
+  overflow: auto;
+  max-height: 600px;
+}
+
+.action-col {
+  flex: 0 0 75px;
+}
+
+.name-link {
+  color: #1e88e5;
+  cursor: pointer;
+
+  &:hover{
+    text-decoration: underline;
+  }
+}
