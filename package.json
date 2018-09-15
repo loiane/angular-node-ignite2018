@@ -5,7 +5,7 @@
     "ng": "ng",
     "dev": "concurrently \"npm run start\" \"nodemon server/index.js\"",
     "start": "ng serve --proxy-config proxy.conf.json",
-    "build": "ng build",
+    "build": "ng build --prod --aot --build-optimizer --output-path server/dist",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

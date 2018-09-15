@@ -1,0 +1,7 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/aed77d32-a21f-4898-9392-5d42a79bfd35/resourceGroups/appsvc_rg_linux_centralus/providers/Microsoft.Web/sites/node-testig",
+    "appService.deploySubpath": "server"
+}

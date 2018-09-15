@@ -6,11 +6,16 @@ const mongoose = require('mongoose');
  */
 mongoose.Promise = global.Promise;
 
-const mongoUri = process.env.MONGO_URL || `mongodb://localhost:27017/ignite2018`;
+const dbName = 'ignite2018';
+const mongoUri = `${process.env.MONGO_URL}/${dbName}` || `mongodb://localhost:27017/${dbName}`;
+const config = {
+  autoIndex: false,
+  useNewUrlParser: true,
+};
 
 function connect() {
  mongoose.set('debug', true);
- return mongoose.connect(mongoUri);
+ return mongoose.connect(mongoUri, {config});
 }
 
 module.exports = {
