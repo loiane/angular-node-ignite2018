@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
 const dbName = 'ignite2018';
-const mongoUri = `${process.env.MONGO_URL}/${dbName}` || `mongodb://localhost:27017/${dbName}`;
+const mongoUri = process.env.MONGO_URL || `mongodb://localhost:27017/${dbName}`;
 const config = {
   autoIndex: false,
   useNewUrlParser: true,
@@ -15,7 +15,7 @@ const config = {
 
 function connect() {
  mongoose.set('debug', true);
- return mongoose.connect(mongoUri, {config});
+ return mongoose.connect(mongoUri, { useNewUrlParser: true });
 }
 
 module.exports = {
