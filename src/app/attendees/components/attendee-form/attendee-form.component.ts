@@ -20,7 +20,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 @Component({
   selector: 'app-attendee-form',
   templateUrl: './attendee-form.component.html',
-  styles: []
+  styleUrls: ['./attendee-form.component.scss']
 })
 export class AttendeeFormComponent implements OnInit {
 
@@ -38,12 +38,15 @@ export class AttendeeFormComponent implements OnInit {
 
   ngOnInit() {
     const attendee = this.route.snapshot.data['attendee'];
+    console.log('this.route.snapshot: ', this.route.snapshot);
+    console.log('this.route: ', this.route);
+    console.log('attendee: ', attendee);
 
     this.form = this.formBuilder.group({
       _id: [attendee._id],
       name: [attendee.name, [Validators.required, Validators.maxLength(200)]],
-      email: [attendee.email, [Validators.required, Validators.email]],
-      sessions: this.formBuilder.array(this.retrieveSessions(attendee), Validators.required)
+      email: [attendee.email, [Validators.required, Validators.email]] // ,
+      // sessions: this.formBuilder.array(this.retrieveSessions(attendee), Validators.required)
     });
   }
 

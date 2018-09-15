@@ -18,7 +18,7 @@ const routes: Routes = [
     path: 'edit/:id',
     component: AttendeeFormComponent,
     resolve: {
-      Attendee: AttendeeGuard
+      attendee: AttendeeGuard
     }
   }
 ];

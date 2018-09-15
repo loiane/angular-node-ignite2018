@@ -16,6 +16,7 @@ import { AttendeesComponent } from './containers/attendees/attendees.component';
     AttendeeDialogComponent,
     AttendeeFormComponent,
     AttendeeTableComponent
-  ]
+  ],
+  entryComponents: [AttendeeDialogComponent]
 })
 export class AttendeesModule {}
