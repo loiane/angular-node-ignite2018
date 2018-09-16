@@ -1,0 +1,10 @@
+version: '2.1'
+
+services:
+  angular-node-ignite2018:
+    image: angular-node-ignite2018
+    build: .
+    environment:
+      NODE_ENV: production
+    ports:
+      - 3001:3001
