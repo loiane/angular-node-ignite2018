@@ -1,0 +1,43 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Run Dev",
+      "type": "npm",
+      "script": "dev",
+      "group": "none"
+    },
+    {
+      "label": "Run server",
+      "type": "npm",
+      "script": "start",
+      "group": "none",
+      "options": {
+        "cwd": "${workspaceRoot}/server"
+      }
+    },
+    {
+      "label": "Run Angular",
+      "type": "npm",
+      "script": "start",
+      "group": "none"
+    },
+    {
+      "label": "Build Angular",
+      "type": "npm",
+      "script": "build",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "type": "npm",
+      "script": "start",
+      "path": "server/",
+      "problemMatcher": []
+    }
+  ]
+}

@@ -1,6 +1,15 @@
 {
-    "appService.zipIgnorePattern": [
-        "node_modules{,/**}"
-    ],
-    "appService.deploySubpath": "server"
+  "editor.tabSize": 2,
+  "editor.fontSize": 14,
+
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 3000,
+
+  "prettier.tabWidth": 2,
+  "prettier.singleQuote": true,
+  "prettier.useTabs": false,
+  "prettier.printWidth": 100,
+
+  "workbench.editor.enablePreviewFromQuickOpen": false,
+  "workbench.editor.enablePreview": false,
 }
