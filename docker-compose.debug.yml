@@ -6,7 +6,7 @@ services:
     build: .
     environment:
       NODE_ENV: development
-      MONGO_URL: mongodb://mongo:27017/contactsCrud
+      MONGO_URL: mongodb://mongo:27017/ignite2018
     ports:
       - 3000:3000
       - 9229:9229
