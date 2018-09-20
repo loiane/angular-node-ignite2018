@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "prod": "NODE_ENV=prod node index.js",
+    "start": "nodemon index.js",
+    "debug": "nodemon --inspect index.js",
+    "prod": "NODE_ENV=prod MONGO_URL=mongodb://nodeig:DTyb37375iHB83h2jJUvk5tfetFyNfQ5684E1P6mJF5Gxd5uUeilEQPEmk4ZP37fGkCrHSK6PSkStf6fANQfTQ==@nodeig.documents.azure.com:10255/ignite2018?ssl=true node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -16,6 +17,7 @@
     "mongoose": "^5.2.14"
   },
   "devDependencies": {
+    "@types/mongodb": "^3.1.7",
     "concurrently": "^4.0.1",
     "nodemon": "^1.18.4"
   }

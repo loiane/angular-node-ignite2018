@@ -1,11 +1,10 @@
 # Angular App
 FROM loiane/angular-cli as client-app
 WORKDIR /app
-COPY . .
+COPY package.json /app
 RUN npm install --silent
-RUN ls
 COPY . .
-RUN npm run build
+RUN npm run build --prod
 
 # Node server
 FROM node:10.10.0-alpine as server-app
@@ -14,10 +13,10 @@ COPY server /app/server
 RUN npm install --production --silent
 
 # Final image
-FROM node:9.11.1-alpine
+FROM node:10.10.0-alpine
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 COPY --from=server-app /app/server /usr/src/app
-COPY --from=client-app /app/dist /usr/src/app/dist
+COPY --from=client-app /app/dist/angular-node-ignite2018 /usr/src/app/dist
 EXPOSE 3001
 CMD [ "node", "index.js" ]
