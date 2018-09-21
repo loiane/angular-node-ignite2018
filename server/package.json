@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js",
-    "debug": "nodemon --inspect index.js",
+    "start": "MONGO_URL=mongodb://localhost:27017/ignite2018 nodemon index.js",
+    "startCosmos": "MONGO_URL=mongodb://nodeig:CgXsf9hXWLoN1FrLMyUao8gs98V3j46iLXrAtdi76vyHi8frG8cp34cddXOSTkQsSDjLu05WJOWfD3RH3s55rQ==@nodeig.documents.azure.com:10255/ignite2018?ssl=true nodemon index.js",
+    "debug": "MONGO_URL=mongodb://localhost:27017/ignite2018 nodemon --inspect index.js",
     "prod": "NODE_ENV=prod MONGO_URL=mongodb://nodeig:DTyb37375iHB83h2jJUvk5tfetFyNfQ5684E1P6mJF5Gxd5uUeilEQPEmk4ZP37fGkCrHSK6PSkStf6fANQfTQ==@nodeig.documents.azure.com:10255/ignite2018?ssl=true node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -18,6 +19,7 @@
   },
   "devDependencies": {
     "@types/mongodb": "^3.1.7",
+    "@types/mongoose": "^5.2.17",
     "concurrently": "^4.0.1",
     "nodemon": "^1.18.4"
   }
