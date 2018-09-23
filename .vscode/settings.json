@@ -12,4 +12,6 @@
 
   "workbench.editor.enablePreviewFromQuickOpen": false,
   "workbench.editor.enablePreview": false,
+
+  "appService.enableRemoteDebugging": true,
 }

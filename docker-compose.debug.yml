@@ -8,7 +8,7 @@ services:
       NODE_ENV: development
       MONGO_URL: mongodb://mongo:27017/ignite2018
     ports:
-      - 3000:3000
+      - 3001:3000
       - 9229:9229
     command: node --inspect=0.0.0.0:9229 index
     links:

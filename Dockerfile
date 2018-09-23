@@ -18,5 +18,5 @@ RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 COPY --from=server-app /app/server /usr/src/app
 COPY --from=client-app /app/dist/angular-node-ignite2018 /usr/src/app/dist
-EXPOSE 8626
+EXPOSE 3000
 CMD [ "node", "index.js" ]
