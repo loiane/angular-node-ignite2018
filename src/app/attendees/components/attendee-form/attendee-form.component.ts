@@ -4,9 +4,11 @@ import { FormArray, FormBuilder, FormControl, FormGroup, FormGroupDirective, NgF
 import { ErrorStateMatcher } from '@angular/material/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
 
 import { ErrorDialogComponent } from '../../../shared/components/error-dialog/error-dialog.component';
 import { Attendee } from '../../model/attendee';
+import { Session } from '../../model/session';
 import { AttendeesService } from '../../services/attendees.service';
 
 /** Error when invalid control is dirty, touched, or submitted. */
@@ -26,6 +28,7 @@ export class AttendeeFormComponent implements OnInit {
 
   form: FormGroup;
   sessions: any = [];
+  sessionList$: Observable<Session[]>;
   matcher = new MyErrorStateMatcher();
 
   constructor(
@@ -33,21 +36,20 @@ export class AttendeeFormComponent implements OnInit {
     private location: Location,
     private formBuilder: FormBuilder,
     private dialog: MatDialog,
-    private attendeesService: AttendeesService
+    private service: AttendeesService
   ) {}
 
   ngOnInit() {
     const attendee = this.route.snapshot.data['attendee'];
-    console.log('this.route.snapshot: ', this.route.snapshot);
-    console.log('this.route: ', this.route);
-    console.log('attendee: ', attendee);
 
     this.form = this.formBuilder.group({
       _id: [attendee._id],
       name: [attendee.name, [Validators.required, Validators.maxLength(200)]],
-      email: [attendee.email, [Validators.required, Validators.email]] // ,
-      // sessions: this.formBuilder.array(this.retrieveSessions(attendee), Validators.required)
+      email: [attendee.email, [Validators.required, Validators.email]],
+      sessions: this.formBuilder.array(this.retrieveSessions(attendee), Validators.required)
     });
+
+    this.sessionList$ = this.service.listSessions();
   }
 
   getSessionFormArray() {
@@ -57,29 +59,25 @@ export class AttendeeFormComponent implements OnInit {
   retrieveSessions(attendee: Attendee) {
     const sessions = [];
     if (attendee && attendee.sessions) {
-      // attendee.sessions.forEach(session => sessions.push(this.createSession(session)));
+      attendee.sessions.forEach(session => sessions.push(this.createSession(session)));
     } else {
-      // sessions.push(this.createSession());
+      sessions.push(this.createSession());
     }
     return sessions;
   }
 
-  /* createSession(session: Session = { areaCode: null, sessionNumber: null }): FormGroup {
+  createSession(session: Session = { name: null }): FormGroup {
     return this.formBuilder.group({
-      areaCode: [
-        session.areaCode,
-        [Validators.required, Validators.maxLength(3), Validators.minLength(3)]
-      ],
-      sessionNumber: [
-        session.sessionNumber,
-        [Validators.required, Validators.maxLength(7), Validators.minLength(7)]
+      name: [
+        session.name,
+        [Validators.required]
       ]
     });
-  } */
+  }
 
   addSession(): void {
     this.sessions = this.form.get('sessions') as FormArray;
-    // this.sessions.push(this.createSession());
+    this.sessions.push(this.createSession());
   }
 
   isFieldRequired(field: string) {
@@ -129,7 +127,7 @@ export class AttendeeFormComponent implements OnInit {
 
   onSubmit() {
     if (this.form.valid) {
-      this.attendeesService.save(this.form.value)
+      this.service.save(this.form.value)
         .subscribe(data => this.onCancel(), error => this.onError());
     } else {
       this.validateAllFormFields(this.form);
@@ -146,4 +144,7 @@ export class AttendeeFormComponent implements OnInit {
     this.location.back();
   }
 
+  displaySessionName(session?: Session) {
+    return session ? session.name : undefined;
+  }
 }

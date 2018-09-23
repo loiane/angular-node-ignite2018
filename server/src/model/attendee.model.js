@@ -6,9 +6,8 @@ const attendeeSchema = new Schema(
     {
       name: { type: String, require: true },
       email: String,
-      phones: [{
-          areaCode: String,
-          phoneNumber: String
+      sessions: [{
+          name: String
       }]
     },
     {

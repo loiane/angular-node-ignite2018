@@ -3,12 +3,12 @@
   <div mat-dialog-content>
     <strong>Email:</strong> {{ data.email }}
     <p></p>
-    <strong>Phones:</strong>
-    <!--mat-list role="list">
-      <mat-list-item role="listitem" *ngFor="let phone of data.phones">
-        ({{ phone.areaCode }}) {{ phone.phoneNumber }}
+    <strong>Sessions:</strong>
+    <mat-list role="list">
+      <mat-list-item role="listitem" *ngFor="let session of data.sessions">
+        {{ session.name }}
       </mat-list-item>
-    </mat-list -->
+    </mat-list>
   </div>
 
   <div mat-dialog-actions align="center">

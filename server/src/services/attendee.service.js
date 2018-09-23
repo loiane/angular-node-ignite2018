@@ -20,7 +20,7 @@ function post(req, res) {
   const originalRecord = {
     name: req.body.name,
     email: req.body.email,
-    phones: req.body.phones
+    sessions: req.body.sessions
   };
   const record = new Attendee(originalRecord);
   record.save(error => {
@@ -35,14 +35,14 @@ function put(req, res) {
     _id: req.body._id,
     name: req.body.name,
     email: req.body.email,
-    phones: req.body.phones
+    sessions: req.body.sessions
   };
   Attendee.findOne({ _id: originalRecord._id }, (error, record) => {
     if (checkServerError(res, error)) return;
     if (!checkFound(res, record)) return;
 
     record.name = originalRecord.name;
-    record.phone = originalRecord.phone;
+    record.sessions = originalRecord.sessions;
     record.email = originalRecord.email;
 
     record.save(error => {

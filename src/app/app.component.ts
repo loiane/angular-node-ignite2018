@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-root',
   template: `
     <mat-toolbar color="primary">
-      <h1>My Contacts - Master Detail CRUD</h1>
+      <h1>MS Ignite 2018</h1>
     </mat-toolbar>
     <router-outlet></router-outlet>
   `

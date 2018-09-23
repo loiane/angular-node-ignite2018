@@ -1,15 +1,20 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
-import { Attendee } from '../model/attendee';
 import { first, tap } from 'rxjs/operators';
+
+import { Attendee } from '../model/attendee';
+import { Session } from '../model/session';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AttendeesService {
   private readonly API = 'api/attendees';
+  private readonly API_SESSION = 'api/sessions';
+
   private cache: Attendee[];
+  private cacheSession: Session[];
 
   constructor(private http: HttpClient) {}
 
@@ -49,5 +54,15 @@ export class AttendeesService {
 
   remove(id: string) {
     return this.http.delete<Attendee>(`${this.API}/${id}`).pipe(first());
+  }
+
+  listSessions() {
+    if (this.cacheSession != null) {
+      return of(this.cacheSession);
+    }
+    return this.http.get<Session[]>(this.API_SESSION).pipe(
+      first(),
+      tap(data => (this.cacheSession = data))
+    );
   }
 }
