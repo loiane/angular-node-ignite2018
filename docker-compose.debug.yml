@@ -5,7 +5,7 @@ services:
     image: server
     build: .
     environment:
-      NODE_ENV: development
+      NODE_ENV: debug
       MONGO_URL: mongodb://mongo:27017/ignite2018
     ports:
       - 3001:3000
