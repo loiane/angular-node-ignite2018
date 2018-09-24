@@ -8,6 +8,7 @@ function getAll(req, res) {
   docquery
     .exec()
     .then(records => {
+      console.log('records: ', records);
       res.status(200).json(records);
     })
     .catch(error => {

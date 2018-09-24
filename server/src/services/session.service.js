@@ -7,9 +7,7 @@ function getAll(req, res) {
   const docquery = Session.find({}).read(ReadPreference.NEAREST);
   docquery
     .exec()
-    .then(records => {
-      res.status(200).json(records);
-    })
+    .then(records => res.status(200).json(records))
     .catch(error => {
       res.status(500).send(error);
       return;
