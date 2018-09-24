@@ -7,6 +7,11 @@
     {
       "name": "Launch Angular/Node",
       "configurations": ["Nodemon", "Angular"]
+    }, {
+      "name": "Debug Angular/Node",
+      "configurations": [
+        "Debug Node: Nodemon", "Attach to Chrome"
+      ]
     }
   ],
   "configurations": [
