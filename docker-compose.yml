@@ -2,10 +2,9 @@ version: '2.1'
 
 services:
   angular-node-ignite2018:
-    image: angular-node-ignite2018
+    image: ignite2018
     build: .
     environment:
       NODE_ENV: production
     ports:
       - 7626:3000
-    # command: npm run start_azure_debug

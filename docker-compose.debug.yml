@@ -1,8 +1,8 @@
 version: '2.1'
 
 services:
-  server:
-    image: server
+  ignite-debug:
+    image: ignite-debug
     build: .
     environment:
       NODE_ENV: debug
