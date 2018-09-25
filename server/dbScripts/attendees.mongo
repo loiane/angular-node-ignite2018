@@ -1,0 +1,17 @@
+db.attendees.insertMany([
+  {
+    name: "Mickey",
+    email: "mickey@email.com",
+    sessions: [{
+      name: "THR1066: Visual Studio Code tips and tricks for JavaScript developers"
+    }, {
+      name: "THR1065: Modern JavaScript development in the cloud: From zero to hero"
+    }, {
+      name: "BRK2391: The complete guide to Node on Azure"
+    }, {
+      name: "BRK3041: full-stack enterprise Node.js apps with Visual Studio Code and Microsoft Azure"
+    }, {
+      name: "BRK2203: Visual Studio Code tips and tricks"
+    }]
+  }
+])
