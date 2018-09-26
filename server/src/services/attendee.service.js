@@ -7,14 +7,8 @@ function getAll(req, res) {
   const docquery = Attendee.find({}).read(ReadPreference.NEAREST);
   docquery
     .exec()
-    .then(records => {
-      console.log('records: ', records);
-      res.status(200).json(records);
-    })
-    .catch(error => {
-      res.status(500).send(error);
-      return;
-    });
+    .then(records => res.status(200).json(records))
+    .catch(error => res.status(500).send(error));
 }
 
 function post(req, res) {
@@ -24,6 +18,7 @@ function post(req, res) {
     sessions: req.body.sessions
   };
   const record = new Attendee(originalRecord);
+  
   record.save(error => {
     if (checkServerError(res, error)) return;
     res.status(201).json(record);
