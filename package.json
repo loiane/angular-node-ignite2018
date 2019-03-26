@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "dev": "concurrently \"npm run start\" \"nodemon server/index.js\"",
+    "dev": "concurrently \"npm run start\" \"node server/index.js\"",
     "start": "ng serve --proxy-config proxy.conf.json",
     "build": "ng build --prod",
     "test": "ng test",
@@ -12,26 +12,26 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "^6.1.0",
-    "@angular/cdk": "^6.4.7",
-    "@angular/common": "^6.1.0",
-    "@angular/compiler": "^6.1.0",
-    "@angular/core": "^6.1.0",
-    "@angular/forms": "^6.1.0",
-    "@angular/http": "^6.1.0",
-    "@angular/material": "^6.4.7",
-    "@angular/platform-browser": "^6.1.0",
-    "@angular/platform-browser-dynamic": "^6.1.0",
-    "@angular/router": "^6.1.0",
+    "@angular/animations": "^7.2.10",
+    "@angular/cdk": "^7.3.6",
+    "@angular/common": "^7.2.10",
+    "@angular/compiler": "^7.2.10",
+    "@angular/core": "^7.2.10",
+    "@angular/forms": "^7.2.10",
+    "@angular/http": "^7.2.10",
+    "@angular/material": "^7.3.6",
+    "@angular/platform-browser": "^7.2.10",
+    "@angular/platform-browser-dynamic": "^7.2.10",
+    "@angular/router": "^7.2.10",
     "core-js": "^2.5.4",
-    "rxjs": "~6.2.0",
+    "rxjs": "~6.4.0",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.8.2",
-    "@angular/cli": "~6.2.1",
-    "@angular/compiler-cli": "^6.1.0",
-    "@angular/language-service": "^6.1.0",
+    "@angular/cli": "~7.3.6",
+    "@angular/compiler-cli": "^7.2.10",
+    "@angular/language-service": "^7.2.10",
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
@@ -48,6 +48,6 @@
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
-    "typescript": "~2.9.2"
+    "typescript": "~3.2.4"
   }
 }

@@ -18,7 +18,7 @@ function post(req, res) {
     sessions: req.body.sessions
   };
   const record = new Attendee(originalRecord);
-  
+
   record.save(error => {
     if (checkServerError(res, error)) return;
     res.status(201).json(record);

@@ -1,25 +1,24 @@
 <mat-card>
-
   <mat-toolbar color="primary">Attendee Details</mat-toolbar>
 
   <mat-card-content>
     <form class="example-form" [formGroup]="form">
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="Name" formControlName="name" #name [errorStateMatcher]="matcher">
+        <input
+          matInput
+          placeholder="Name"
+          formControlName="name"
+          #name
+          [errorStateMatcher]="matcher"
+        />
         <mat-hint align="end">{{ name.value.length }} / 200</mat-hint>
-        <mat-error *ngIf="isFieldRequired('name')">
-          Name is required
-        </mat-error>
+        <mat-error *ngIf="isFieldRequired('name')"> Name is required </mat-error>
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="Email" formControlName="email" [errorStateMatcher]="matcher">
-        <mat-error *ngIf="isFieldRequired('email')">
-          Email is required
-        </mat-error>
-        <mat-error *ngIf="isEmailValid('email')">
-          Please enter a valid email address
-        </mat-error>
+        <input matInput placeholder="Email" formControlName="email" [errorStateMatcher]="matcher" />
+        <mat-error *ngIf="isFieldRequired('email')"> Email is required </mat-error>
+        <mat-error *ngIf="isEmailValid('email')"> Please enter a valid email address </mat-error>
       </mat-form-field>
 
       <mat-toolbar>
@@ -34,16 +33,28 @@
         Select at least one session.
       </mat-error>
 
-      <table class="example-full-width" cellspacing="0" formArrayName="sessions" *ngFor="let session of getSessionFormArray(); let i = index;">
+      <table
+        class="example-full-width"
+        cellspacing="0"
+        formArrayName="sessions"
+        *ngFor="let session of getSessionFormArray(); let i = index"
+      >
         <tr [formGroupName]="i">
           <td style="width:100%">
             <mat-form-field class="example-full-width">
-              <input matInput placeholder="Sesion" formControlName="name" [matAutocomplete]="auto">
+              <input
+                matInput
+                placeholder="Sesion"
+                formControlName="name"
+                [matAutocomplete]="auto"
+              />
               <mat-error *ngIf="isFieldRequiredArray('sessions', 'name', i)">
                 Please select a session.
               </mat-error>
               <mat-autocomplete #auto="matAutocomplete">
-                <mat-option *ngFor="let option of sessionList$ | async" [value]="option.name">{{ option.name }}</mat-option>
+                <mat-option *ngFor="let option of (sessionList$ | async)" [value]="option.name">{{
+                  option.name
+                }}</mat-option>
               </mat-autocomplete>
             </mat-form-field>
           </td>

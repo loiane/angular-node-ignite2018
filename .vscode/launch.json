@@ -15,6 +15,7 @@
     }
   ],
   "configurations": [
+
     {
       "type": "node",
       "request": "attach",

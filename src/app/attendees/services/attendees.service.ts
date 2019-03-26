@@ -6,6 +6,7 @@ import { first, tap } from 'rxjs/operators';
 import { Attendee } from '../model/attendee';
 import { Session } from '../model/session';
 
+
 @Injectable({
   providedIn: 'root'
 })
