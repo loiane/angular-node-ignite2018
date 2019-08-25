@@ -17,6 +17,6 @@ FROM node:10.10.0-alpine
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 COPY --from=server-app /app/server /usr/src/app
-COPY --from=client-app /app/dist/angular-node-crud-mean /usr/src/app/dist
+COPY --from=client-app /app/dist/angular-node-ignite2018 /usr/src/app/dist
 EXPOSE 3000
 CMD [ "node", "index.js" ]
