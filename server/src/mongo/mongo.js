@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
-const mongoUri = process.env.MONGO_URL || 'mongodb://localhost:27017/ignite2018';
+const mongoUri = process.env.MONGO_URL || 'mongodb://localhost:27017/crud-mean';
 
 function connect() {
  mongoose.set('debug', true);

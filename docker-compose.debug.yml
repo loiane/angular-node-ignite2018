@@ -6,7 +6,7 @@ services:
     build: .
     environment:
       NODE_ENV: debug
-      MONGO_URL: mongodb://mongo:27017/ignite2018
+      MONGO_URL: mongodb://mongo:27017/crud-mean
     ports:
       - 3001:3000
       - 9229:9229
@@ -18,4 +18,4 @@ services:
     container_name: mongo
     image: mongo
     ports:
-      - "27017:27017"      
+      - "27017:27017"
