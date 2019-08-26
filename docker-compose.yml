@@ -1,8 +1,8 @@
 version: '2.1'
 
 services:
-  angular-node-ignite2018:
-    image: ignite2018
+  angular-crud:
+    image: angular-crud
     build: .
     environment:
       NODE_ENV: production

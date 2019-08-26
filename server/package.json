@@ -4,10 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "MONGO_URL=mongodb://localhost:27017/crud-mean nodemon index.js",
-    "startCosmos": "MONGO_URL=mongodb://nodeig:CgXsf9hXWLoN1FrLMyUao8gs98V3j46iLXrAtdi76vyHi8frG8cp34cddXOSTkQsSDjLu05WJOWfD3RH3s55rQ==@nodeig.documents.azure.com:10255/crud-mean?ssl=true nodemon index.js",
-    "debug": "MONGO_URL=mongodb://localhost:27017/crud-mean nodemon --inspect index.js",
-    "prod": "NODE_ENV=prod MONGO_URL=mongodb://nodeig:DTyb37375iHB83h2jJUvk5tfetFyNfQ5684E1P6mJF5Gxd5uUeilEQPEmk4ZP37fGkCrHSK6PSkStf6fANQfTQ==@nodeig.documents.azure.com:10255/crud-mean?ssl=true node index.js",
+    "start": "nodemon index.js",
+    "debug": "nodemon --inspect index.js",
     "start_azure_debug": "node --inspect=0.0.0.0:$APPSVC_TUNNEL_PORT index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "dotenv": "^8.1.0",
     "express": "^4.16.3",
     "mongoose": "^5.2.14"
   },

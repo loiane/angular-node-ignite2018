@@ -1,8 +1,8 @@
 version: '2.1'
 
 services:
-  ignite-debug:
-    image: ignite-debug
+  angular-crud-debug:
+    image: angular-crud-debug
     build: .
     environment:
       NODE_ENV: debug
